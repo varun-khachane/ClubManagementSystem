@@ -1,0 +1,43 @@
+body{
+    background: #bac0c5;
+    font-family: 'Montserrat', sans-serif !important;
+}
+a{
+	color: black;
+	text-decoration: none !important;
+}
+nav{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.container{
+	margin-bottom: 40px;
+}
+.navbar-toggler{
+    outline: none !important;
+}
+.btn-danger{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.nav-link{
+    font-size: large;
+}
+.navbar-brand{
+    font-size: x-large;
+}
+.card{
+    margin: 15px;
+}
+.btn{
+    outline: none !important;
+    box-shadow: none !important;
+}
+.card-img-top{
+    width: 100%;
+    height: auto;
+}
+.card-title{
+	text-transform: uppercase;
+    letter-spacing: 2px;
+}

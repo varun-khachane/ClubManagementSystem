@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+        integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/stylesheets/student_homepage.css">
+
+    <title>Student HomePage</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+            aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="/student">
+            Events
+        </a>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item ">
+                    <a class="nav-link" href="#">Global </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Personal</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/student/all_clubs">Clubs</a>
+                </li>
+
+            </ul>
+            <div class="xyz" style="margin: 5px;">
+                <div class="btn-group">
+                    <button class="btn btn-secondary btn-sm" type="button">
+                      Varun M Khachane
+                    </button>
+                    <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <div class="dropdown-menu p-1">
+                        <p>
+                           BL.EN.U4CSE17140
+                        </p>
+                        <form class="px-1 py-1">
+                            <div class="form-group">
+                              <label for="exampleDropdownFormEmail1">New Password</label>
+                              <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="Password">
+                            </div>
+                            <div class="form-group">
+                              <label for="exampleDropdownFormPassword1">Confirm Password</label>
+                              <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary float-right">Confirm</button>
+                          </form>
+                    </div>
+                  </div>
+            </div>
+            <ul class="logout-button">
+                <a class="btn btn-danger  my-2 my-sm-0" href="/login">Log Out</a>
+            </ul>
+            
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 id="main-heading"> Upcoming Events</h1>
+
+        <ul class="unordered-list-event">
+            <li class="event-list">
+                <div class="card">
+                    <div class="card-header">
+                         Raaga
+                         <div class="float-right"><button class="btn btn-outline-danger"><i class="fas fa-heart"></i>  Follow</button></div>
+                         
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <img class="img-fluid" src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="">
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Event Name</h5>
+                                <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam
+                                    quasi repellendu.
+                                </p>
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-outline-success align-bottom" data-toggle="modal"
+                                    data-target="#exampleModal">
+                                    Register
+                                </button>
+                                
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Event Details</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <ul>
+                                                    <li>Date - </li>
+                                                    <li>Time - </li>
+                                                    <li>Venue - </li>
+
+                                                </ul>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-success"
+                                                    data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Register</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </li>
+             <li class="event-list">
+                <div class="card">
+                    <div class="card-header">
+                         Narthana
+                         <div class="float-right"><button class="btn btn-outline-danger"><i class="fas fa-heart"></i>  Follow</button></div>
+                         
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <img class="img-fluid"src="https://images.unsplash.com/photo-1502519144081-acca18599776?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="">
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Event Name</h5>
+                                <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam
+                                    quasi repellendu.
+                                </p>
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-outline-success align-bottom" data-toggle="modal"
+                                    data-target="#exampleModal">
+                                    Register
+                                </button>
+                                
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Event Details</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <ul>
+                                                    <li>Date - </li>
+                                                    <li>Time - </li>
+                                                    <li>Venue - </li>
+
+                                                </ul>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-success"
+                                                    data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Register</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

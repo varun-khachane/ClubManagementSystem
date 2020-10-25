@@ -1,0 +1,38 @@
+html{
+	background: #d6a100;
+}
+hr{
+	width: 60%;
+	margin-left: 0px;
+	background: black;
+}
+
+.left{
+	position: absolute;
+	left: 40%;
+	top: 25%;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+.img-fluid{
+	width: 100%;
+    max-height: 100vh;
+}
+.btn{
+	box-shadow: none !important;
+	width: 40%;
+	border: 2px black solid;
+	transition: transform .5s;
+	border-radius: 20px;
+}
+.btn:hover{
+	transform: scale(1.2);
+	font-weight: bolder;
+}
+
+
+/*
+. -> class 
+# -> id
+tag -> element
+*/

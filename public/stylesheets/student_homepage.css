@@ -1,0 +1,71 @@
+body{
+    background: #bac0c5;
+    font-family: 'Montserrat', sans-serif !important;
+    
+}
+nav{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.navbar-toggler{
+    outline: none !important;
+}
+.close{
+    outline: none !important;
+}
+
+.nav-link{
+    font-size: large;
+}
+.navbar-brand{
+    font-size: x-large;
+}
+#main-heading{
+    margin: 15px;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 100;
+
+}
+.img-fluid{
+    padding: 15px;
+}
+.btn-danger{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+ul{
+    list-style-type: none;
+}
+.event-list{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.logout-button{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-left: 0px;
+}
+.unordered-list-event{
+    padding: 0px;
+}
+.card-header{
+    font-size: larger;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 900;
+    color: white;
+    background: linear-gradient(45deg, black, transparent);
+}
+.xyz{
+    padding-right: 20px;
+    margin: 5px 0px !important;
+}
+.dropdown-menu { 
+     width: 160%; text-align: center; 
+} 
+.btn{
+    outline: none !important;
+    box-shadow: none !important;
+}

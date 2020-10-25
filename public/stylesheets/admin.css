@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@200;400&display=swap');
+html{
+	height: 100%;
+}
+body{
+	font-family: 'Epilogue', sans-serif;
+	background: gainsboro;
+}
+.btn-outline-dark{
+	position: absolute;
+	top: 5%;
+	right: 5%;
+	font-size: x-large;
+}
+.event-row  td,th  {
+	padding: 10px;
+	margin: 20px;
+	margin-top: 0px;
+	letter-spacing: 2px;
+}
+.event-row .event-name {
+	color: rgb(45,45,45,0.8);
+}
+.fas{
+	font-size: xx-large;
+}
+.fa-check{
+	color: green;
+}
+.fa-times{
+	color: red;
+}
+button{
+	border: none;
+	margin: 10px;
+	background: none;
+	outline: none !important;
+	pointer-events: auto;
+}
+tr{
+	pointer-events: none;
+}
+tr:hover{
+	border: 1px solid black;
+}	
+.approval{
+	text-align: center;
+}
+.event-header {
+	letter-spacing:  3px;
+	text-transform: uppercase;
+	width: auto;
+	height: 50px;
+	padding: 5px;
+	margin: 20px;
+	margin-bottom: 0px;
+
+}
+.jumbotron{
+	text-align: center;
+}
+.container{
+	text-align: center;
+	margin-bottom: 40px;
+}
+table {
+	width: 80%;
+	margin:auto;
+	text-align: justify;
+	font-size: large;
+}
+hr{
+	width: 33%;
+	background: black;
+	margin: 10px auto;
+}

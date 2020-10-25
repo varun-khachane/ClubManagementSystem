@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Launch Event!</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous"/>
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/eventForm.css">
+    
+  </head>
+  <body>
+    <header  id="main-header">
+		<img class="img-fluid" src="/images/dance.png" alt="Narthana logo">
+		<h1 class="club-name">Narthana<br><p>This is the dance club! Let's dance :)</p></h1>
+		<h1 class="username">Welcome<span> user</span>!</h1>
+
+		<a class="logout-btn" href="/login">LOGOUT<!-- <h3 class="club-header">Log out</h3> --></a>		
+    </header>
+
+    <!-- <div class="events"> -->
+        <div class="container">
+
+            <h1  class="eb eventForm"><a href="/dhara"><span class="fas fa-arrow-left"></span></a>REGISTER A NEW EVENT!</h1>
+    
+            <form class="eventForm" action=""> 
+                <div class="form-group">
+                    <label for="eventNameInput">Event Name</label>
+                    <input type="text" class="form-control" id="eventNameInput" placeholder="name of the event">
+                </div>
+
+                <div class="form-group">
+                    <label for="descInput">Description</label>
+                    <textarea class="form-control" name="descInput" placeholder="describe the event"id="descInput" cols="15" rows="5"></textarea>
+                </div>
+
+                <div class="form-group half-width">
+                    <label for="eventDate">Date</label>
+                    <input type="date" class="form-control" id="eventDate" >
+                </div>
+
+                <div class="form-group">
+                    <label for="eventTime">Time</label><br>
+                    <div class="alert alert-danger" role="alert">NOTE: Make sure your event ends before 6:30pm</div>
+                    
+                    <div class="row">
+                        <div class="col">
+                          <input type="time" class="form-control" id="eventTime" placeholder="3:30 pm"  min="15:30" max="18:00">
+                        </div>
+                        <div class="col">
+                         <input type="number" class="form-control" id="eventDuration" placeholder="duration in mins" min="30" max="180">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group half-width">
+                    <label for="eventPlace">Venue</label>
+                    <select class="form-control" id="eventPlace" name="eventPlace">
+                        <option value="">Sudamani</option>
+                        <option value="">Rama </option>
+                        <option value="">Vyasa</option>
+                        <option value="" disabled>Amriteshwari</option> 
+                        <option value="" disabled>Valmiki</option>   
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-dark">Request</button>
+
+                
+            </form>
+        </div>
+<!-- </div> -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+.currEvents {
+   display: inline-block;
+}
+
+hr{
+	margin-top: 0px;
+	width: 20%;
+}
+.btnColour {
+	color: #212529;
+	float: right;
+	font-size: xxx-large;
+	text-decoration: none !important;
+}
+
+.btnColour:hover {
+    color: lightslategrey;
+}
+table{
+	width: 80%;
+}
+
+
+
+

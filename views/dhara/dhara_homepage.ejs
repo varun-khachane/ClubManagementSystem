@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<head>
+	
+	<title>Dhara Homepage</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous"/>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/homepage.css">
+</head>
+<body>
+	<header  id="main-header">
+		<img class="img-fluid" src="/images/dance.png" alt="Narthana logo">
+		<h1 class="club-name editableTag applyInline" contenteditable="false">Narthana</h1>
+			<p class="editableTag" contenteditable="false"> This is the dance club! Let's dance :) </p>
+			<br>
+			<button class="editBtn applyInline" onclick="editProfile()"> 
+				<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+					<path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+					<path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+				</svg>
+			</button>
+			<h1 class="username">Welcome<span> user</span>!</h1>
+		
+		<a class="logout-btn" href="/login">LOGOUT<!-- <h3 class="club-header">Log out</h3> --></a>		
+	</header>
+
+	<div class="events">
+		<a class="anch-tags" href="/dhara/events">EVENTS <!-- <h2 class="new-event eb">EVENTS</h2> --></a>
+		<h1 id="event-header" class="eb">Upcoming Events</h1>
+		<hr>
+		
+
+		<table>
+			<tr class="event-row">
+				<th>EVENT </th>
+				<th>TIMINGS</th>
+				<th>DATE</th>
+				<th>VENUE</th>
+				<th>CLUB NAME</th>
+			</tr>
+
+			<tr class="event-row">
+				<td class="event-name">Classical Dance</td>
+				<td class="event-time">3:30-5:00</td>
+				<td class="event-date">12-12-50</td>
+				<td class="venue">Sudamani Hall</td>
+				<td class="name">Narthana</td>
+			</tr>
+			<tr class="event-row">
+				<td class="event-name">Quiz machanege!</td>
+				<td class="event-time">2:30-4:00</td>
+				<td class="event-date">1-12-20</td>
+				<td class="venue">Rama Hall</td>
+				<td class="name">Quiz club</td>
+			</tr>
+			<tr class="event-row">
+				<td class="event-name">Quiz machanege!</td>
+				<td class="event-time">2:30-4:00</td>
+				<td class="event-date">1-12-20</td>
+				<td class="venue">Rama Hall</td>
+				<td class="name">Quiz club</td>
+			</tr>
+			<tr class="event-row">
+				<td class="event-name">Quiz machanege!</td>
+				<td class="event-time">2:30-4:00</td>
+				<td class="event-date">1-12-20</td>
+				<td class="venue">Rama Hall</td>
+				<td class="name">Quiz club</td>
+			</tr>
+			<tr class="event-row">
+				<td class="event-name">Quiz machanege!</td>
+				<td class="event-time">2:30-4:00</td>
+				<td class="event-date">1-12-20</td>
+				<td class="venue">Rama Hall</td>
+				<td class="name">Quiz club</td>
+			</tr>
+		</table>
+	</div>
+
+	
+</body>
+
+<script>
+	function editProfile() {
+		let selectTags = document.getElementsByClassName("editableTag");
+		for(var i=0;i<selectTags.length;i++) {
+			if(selectTags[i].isContentEditable == true)
+				selectTags[i].contentEditable = false;
+			else
+				selectTags[i].contentEditable = true;			
+		}
+	}
+</script>
+</html>

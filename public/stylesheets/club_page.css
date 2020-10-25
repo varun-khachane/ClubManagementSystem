@@ -1,0 +1,60 @@
+body{
+    background:#bac0c5;
+    font-family: 'Montserrat', sans-serif !important;
+}
+nav{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.btn-danger{
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.navbar-toggler{
+    outline: none !important;
+}
+.img-thumbnail{
+    padding: 0px;
+}
+img{
+    width: 100%;
+    height: auto;
+    margin: 5px 0px;
+}
+a{
+    text-decoration: none !important;
+}
+.display-4{
+    text-transform: uppercase;
+    letter-spacing: 6px;
+}
+.lead{
+    letter-spacing: 2px;
+}
+#two{
+    margin: 20px 0px;
+}
+.jumbotron{
+    background: url("../images/bg.jpg") no-repeat center center; 
+    -webkit-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    background-size: 100% 100%;
+
+    color: white;
+}
+.nav-link{
+    font-size: large;
+    color: black;
+}
+.managers{
+    list-style: none;
+}
+.managers li{
+    margin: 5px 0px;
+    letter-spacing: 2px;
+}
+.btn{
+    outline: none !important;
+    box-shadow: none !important;
+}
