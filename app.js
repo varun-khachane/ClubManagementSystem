@@ -1,4 +1,22 @@
 var express = require("express");
+
+
+var firebase = require("firebase");
+var firebaseConfig = {
+   apiKey: "AIzaSyD1zNmA4uYzezvcCJhBFMEblmKiyBY_De0",
+   authDomain: "club-activity-management.firebaseapp.com",
+   databaseURL: "https://club-activity-management.firebaseio.com",
+   projectId: "club-activity-management",
+   storageBucket: "club-activity-management.appspot.com",
+   messagingSenderId: "386510555091",
+   appId: "1:386510555091:web:477e5a39bee0b2eb53d126",
+   measurementId: "G-3C312DNRFF"
+};
+var fb = firebase.initializeApp(firebaseConfig);
+const auth = fb.auth();
+const db = fb.firestore();
+db.settings({timestampsInSnapshots: true});
+
 var app = express();
 var bodyParser = require("body-parser");
 
@@ -10,14 +28,58 @@ app.get("/",function(req,res){
 	res.render("home");
 });
 
+
+var user = {msg:""};
 app.get("/login",function(req,res){
-	res.render("login");
+	res.render("login",{user:user});
 });
 
 app.post("/login",function(req,res){
-	var id = req.body.username;
-	var pw = req.body.password;
-	res.redirect("/"); //Go to home page of student or admin or dhara 
+	const uid = req.body.username;
+	const pw = req.body.password;
+	var msg  = {};
+	auth.signInWithEmailAndPassword(uid,pw).then(cred => {
+		
+		res.redirect("/admin");
+	}).catch(error => {
+		// const loginError = document.querySelector(".alert");
+		// loginError.style.display = "block";
+		// loginError.innerHTML = error;
+		// $('.alert').delay(3000).fadeOut('slow');
+		// loginForm.reset();
+		user = {msg: error};
+		res.redirect("/login");
+	})
+});
+
+
+function authChecker(req,res,next) {
+	auth.onAuthStateChanged(function(user1) {
+	  if (!user1) {
+	  	//window.location.href = "../";
+	  	res.render("login",{user:user})
+	  } else {
+	  	//const logout = document.querySelector('.logout-btn');
+		// logout.addEventListener('click', (e) => {
+			// e.preventDefault();
+			next();
+		// 	auth.signOut().then(() => {
+		// 		// window.location.href = '../';
+		// 		res.redirect("/");
+
+		// 	// });
+		// });
+	  }
+	});
+}
+
+app.use(authChecker);
+
+app.get("/logout",(req,res)=>{
+	auth.signOut().then(()=>{
+		console.log(auth.currentUser);
+		res.redirect("/");
+	});
 })
 
 //admin routes

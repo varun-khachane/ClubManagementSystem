@@ -81,6 +81,10 @@ form{
 	color: black;
 	font-weight: bolder;
 }
+.alert{
+	/*border: 1px solid black;
+	display: none;*/
+}
 
 @media (max-width: 1184px) {
 	body{
