@@ -14,12 +14,6 @@ app.get("/login",function(req,res){
 	res.render("login");
 });
 
-app.post("/login",function(req,res){
-	var id = req.body.username;
-	var pw = req.body.password;
-	res.redirect("/"); //Go to home page of student or admin or dhara 
-})
-
 //admin routes
 
 app.get("/admin",function(req,res){

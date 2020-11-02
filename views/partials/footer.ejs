@@ -1,0 +1,26 @@
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyD1zNmA4uYzezvcCJhBFMEblmKiyBY_De0",
+    authDomain: "club-activity-management.firebaseapp.com",
+    databaseURL: "https://club-activity-management.firebaseio.com",
+    projectId: "club-activity-management",
+    storageBucket: "club-activity-management.appspot.com",
+    messagingSenderId: "386510555091",
+    appId: "1:386510555091:web:477e5a39bee0b2eb53d126",
+    measurementId: "G-3C312DNRFF"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+  db.settings({ timestampsInSnapshots: true});
+</script>
