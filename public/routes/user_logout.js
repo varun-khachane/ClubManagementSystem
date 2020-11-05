@@ -1,13 +1,11 @@
 auth.onAuthStateChanged(function(user) {
   if (!user) {
-  	window.location.href = "../";
+  	window.location.href = "/login";
   } else {
   	const logout = document.querySelector('.logout-btn');
 	logout.addEventListener('click', (e) => {
 		e.preventDefault();
-		auth.signOut().then(() => {
-			window.location.href = '../';
-		});
+		auth.signOut();
 	});
   }
 });
