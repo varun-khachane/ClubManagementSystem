@@ -1,0 +1,14 @@
+<% clubData.forEach(x => {  %>
+					<tr class="event-row">
+
+						<td class="event-name"><%= x.desc %></td>
+						<td class="event-time">3:30-5:00</td>
+						<td class="event-date">2-12-20</td>
+						<td class="venue">Sudamani Hall</td>
+						<td class="name"><%= x.name %></td>
+						<td class="approval"><button onclick="alert('approved')"><span class="fas fa-check"></span></button><button onclick="alert('disapproved')"><span class="fas fa-times"></span></button></td>
+					</tr>
+					<% }); %>
+
+
+                    

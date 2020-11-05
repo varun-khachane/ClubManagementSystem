@@ -105,9 +105,27 @@ app.get("/logout",(req,res)=>{
 
 
 app.get("/admin",function(req,res){
-	console.log("hii");
+
+	
 	if(auth.currentUser != null){
-		res.render("admin/admin_homepage");
+		clubs = new Array()
+		db.collection("clubs").get().then((snapshot) =>{
+			let i = 0;
+			snapshot.forEach((doc) => {
+				docid = doc.id
+				db.collection("clubs").doc(docid).collection("events").get().then((snapshot1) =>{
+					snapshot1.forEach(doc1 => {
+						console.log(doc1.data());
+						console.log(doc.data())
+						});
+					});
+				});
+				res.render("admin/admin_homepage");
+			})
+			.catch((err) => {
+			console.log(err);
+		});
+		
 	}
 	else{
 		res.redirect("/")
