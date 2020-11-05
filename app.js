@@ -24,15 +24,22 @@ app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine", "ejs");
 
+
+
+//routes///////////////////////////////////////////////////////////////////////////
+
+
+
 app.get("/",function(req,res){
 	res.render("home");
 });
 
-
 var user = {msg:""};
+
 app.get("/login",function(req,res){
 	res.render("login",{user:user});
 });
+
 
 app.post("/login",function(req,res){
 	const uid = req.body.username;
@@ -51,6 +58,15 @@ app.post("/login",function(req,res){
 		res.redirect("/login");
 	})
 });
+
+
+
+app.use((req,res,next) => {
+	if(auth.currentUser == null){
+		res.redirect("/")
+	}
+	return next();
+   });
 
 
 function authChecker(req,res,next) {
@@ -82,13 +98,24 @@ app.get("/logout",(req,res)=>{
 	});
 })
 
-//admin routes
+
+
+//admin routes/////////////////////////////////////////////////////////////////////
+
+
 
 app.get("/admin",function(req,res){
-	res.render("admin/admin_homepage");
+	console.log("hii");
+	if(auth.currentUser != null){
+		res.render("admin/admin_homepage");
+	}
+	else{
+		res.redirect("/")
+	}
+	
 });
 
-//dhara routes
+//dhara routes//////////////////////////////////////////////////////////////////////
 
 app.get("/dhara",function(req,res){
 	res.render("dhara/dhara_homepage");
@@ -103,7 +130,7 @@ app.get("/dhara/events/new",function(req,res){
 });
 
 
-//student routes
+//student routes//////////////////////////////////////////////////////////////////////
 
 app.get("/student",function(req,res){
 	res.render("students/student_homepage");
