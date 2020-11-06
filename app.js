@@ -115,24 +115,24 @@ app.get("/admin",function(req,res){
 
 	
 	if(auth.currentUser != null){
-		clubs = new Array()
 		db.collection("clubs").get().then((snapshot) =>{
 			let i = 0;
+			eventList = new Array();
 			snapshot.forEach((doc) => {
 				docid = doc.id
 				db.collection("clubs").doc(docid).collection("events").get().then((snapshot1) =>{
 					snapshot1.forEach(doc1 => {
-						console.log(doc1.data());
-						console.log(doc.data())
-						});
+						eventList[i] = doc1.data();
+						eventList[i].clubname = doc.data().name;
+						i++;	
 					});
 				});
-				res.render("admin/admin_homepage");
-			})
-			.catch((err) => {
+			});
+			console.log(eventList)
+			res.render("admin/admin_homepage",{eventList: eventList});	
+		}).catch((err) => {
 			console.log(err);
 		});
-		
 	}
 	else{
 		res.redirect("/")

@@ -32,37 +32,22 @@
 						<th>CLUB NAME</th>
 						<th></th>
 					</tr>
-					
-					<!-- <tr class="event-row">
-						<td class="event-name">Quiz machanege!</td>
+					<% for (var i = 0; i < eventList.length; i++) { %>
+					<tr class="event-row">
+						<td class="event-name"><%= eventList[i].name %></td>
 						<td class="event-time">2:30-4:00</td>
 						<td class="event-date">1-12-20</td>
 						<td class="venue">Rama Hall</td>
-						<td class="name">Quiz club</td>
+						<td class="name"><%= eventList[i].clubname %></td>
 						<td class="approval"><button onclick="alert('approved')"><span class="fas fa-check"></span></button><button onclick="alert('disapproved')"><span class="fas fa-times"></span></button></td>
 					</tr>
-					<tr class="event-row">
-						<td class="event-name">Quiz machanege!</td>
+					<% } %>
+<!-- 					<tr class="event-row">
+						<td class="event-name">sadad</td>
 						<td class="event-time">2:30-4:00</td>
 						<td class="event-date">1-12-20</td>
 						<td class="venue">Rama Hall</td>
-						<td class="name">Quiz club</td>
-						<td class="approval"><button onclick="alert('approved')"><span class="fas fa-check"></span></button><button onclick="alert('disapproved')"><span class="fas fa-times"></span></button></td>
-					</tr>
-					<tr class="event-row">
-						<td class="event-name">Quiz machanege!</td>
-						<td class="event-time">2:30-4:00</td>
-						<td class="event-date">1-12-20</td>
-						<td class="venue">Rama Hall</td>
-						<td class="name">Quiz club</td>
-						<td class="approval"><button onclick="alert('approved')"><span class="fas fa-check"></span></button><button onclick="alert('disapproved')"><span class="fas fa-times"></span></button></td>
-					</tr>
-					<tr class="event-row">
-						<td class="event-name">Quiz machanege!</td>
-						<td class="event-time">2:30-4:00</td>
-						<td class="event-date">1-12-20</td>
-						<td class="venue">Rama Hall</td>
-						<td class="name">Quiz club</td>
+						<td class="name">asdsadsad</td>
 						<td class="approval"><button onclick="alert('approved')"><span class="fas fa-check"></span></button><button onclick="alert('disapproved')"><span class="fas fa-times"></span></button></td>
 					</tr> -->
 
