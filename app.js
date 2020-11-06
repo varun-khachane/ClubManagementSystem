@@ -111,6 +111,20 @@ app.get("/logout",(req,res)=>{
 
 
 
+async function eventApprovallist(snapshot, eventList) {
+	snapshot.forEach((doc) => {
+		db.collection("clubs").doc(doc.id).collection("events").get().then((snapshot1) =>{
+			snapshot1.forEach(doc1 => {
+				eventList[i] = doc1.data();
+				eventList[i].clubname = doc.data().name;
+				i++;	
+			});
+		});
+	});
+
+	return eventList;
+}
+
 app.get("/admin",function(req,res){
 
 	
@@ -118,17 +132,8 @@ app.get("/admin",function(req,res){
 		db.collection("clubs").get().then((snapshot) =>{
 			let i = 0;
 			eventList = new Array();
-			snapshot.forEach((doc) => {
-				docid = doc.id
-				db.collection("clubs").doc(docid).collection("events").get().then((snapshot1) =>{
-					snapshot1.forEach(doc1 => {
-						eventList[i] = doc1.data();
-						eventList[i].clubname = doc.data().name;
-						i++;	
-					});
-				});
-			});
-			console.log(eventList)
+			eventList =  await eventApprovallist(snapshot, eventList);
+			console.log(eventList);
 			res.render("admin/admin_homepage",{eventList: eventList});	
 		}).catch((err) => {
 			console.log(err);
