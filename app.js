@@ -44,10 +44,18 @@ app.get("/login",function(req,res){
 app.post("/login",function(req,res){
 	const uid = req.body.username;
 	const pw = req.body.password;
+	var index = uid.search('@');
+	var checkUser = (uid.charAt(index+1));
 	var msg  = {};
 	auth.signInWithEmailAndPassword(uid,pw).then(cred => {
 		
-		res.redirect("/admin");
+		if(checkUser === 'd'){
+			res.redirect("/dhara");
+		}else if(checkUser === 'a'){
+			res.redirect("/admin");
+		}else if(checkUser === 's'){
+			res.redirect("/student");
+		}
 	}).catch(error => {
 		// const loginError = document.querySelector(".alert");
 		// loginError.style.display = "block";
@@ -93,7 +101,6 @@ app.use(authChecker);
 
 app.get("/logout",(req,res)=>{
 	auth.signOut().then(()=>{
-		console.log(auth.currentUser);
 		res.redirect("/");
 	});
 })
