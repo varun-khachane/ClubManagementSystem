@@ -6,7 +6,7 @@ db.collection("clubs").get().then((snapshot) =>{
 	eventList = new Array();
 	snapshot.forEach((doc) => {
 		db.collection("clubs").doc(doc.id).collection("events").where('status','==','NA').get().then((snapshot1) =>{
-			eventsWaitingForApproval(snapshot1.docs);
+			eventsWaitingForApproval(snapshot1.docs,doc.id);
 		});
 	});
 	
@@ -16,10 +16,14 @@ db.collection("clubs").get().then((snapshot) =>{
 
 //rendering the data to frontend
 const eventWaitingList = document.querySelector(".waiting-for-approval");
-function eventsWaitingForApproval(events){
+function eventsWaitingForApproval(events,club){
 	let html = '';
 	events.forEach(doc => {
-		const event = doc.data();
+		const event = doc.data();		
+		ID ={
+			club : club,
+			event: doc.id
+		};
 		var date = event.time.toDate().toDateString();
 		var time = event.time.toDate().toLocaleTimeString();
 		const tr = `
@@ -31,10 +35,10 @@ function eventsWaitingForApproval(events){
 				<td class="venue">${event.hall}</td>
 				<td class="name">${event.clubname}</td>
 				<td class="approval">
-					<button onclick="approveEvent()">
+					<button class="${ID.club}" id="${ID.event}" onclick="approveEvent(this.className,this.id)">
 						<span class="fas fa-check"></span>
 					</button>
-					<button onclick="disapproveEvent()">
+					<button class="${ID.club}" id="${ID.event}" onclick="disapproveEvent(this.className,this.id)">
 						<span class="fas fa-times"></span>
 					</button>
 				</td>
@@ -44,6 +48,29 @@ function eventsWaitingForApproval(events){
 	});
 	eventWaitingList.innerHTML += html;
 }
+
+
+//WHEN ADMIN CLICKS APPROVE EVENT BUTTON-----------------------------------------
+function approveEvent(clubDocID,eventDocID){
+	db.collection("clubs").doc(clubDocID).collection("events").doc(eventDocID).update({
+		status: "A"
+	});
+	document.getElementById("event-approved").style.display = "block";
+	$('#event-approved').delay(3000).fadeOut('slow');
+}
+
+
+//WHEN ADMIN CLICKS DISAPPROVE EVENT BUTTON-----------------------------------------
+function disapproveEvent(clubDocID,eventDocID){
+	db.collection("clubs").doc(clubDocID).collection("events").doc(eventDocID).delete().then(function() {
+	    console.log("Document successfully deleted!");
+	}).catch(function(error) {
+	    console.error(error);
+	});
+	document.getElementById("event-disapproved").style.display = "block";
+	$('#event-disapproved').delay(3000).fadeOut('slow');
+}
+
 
 
 //UPCOMING EVENTS THAT ARE ALREADY APPROVED-----------------------------------------
@@ -85,15 +112,6 @@ function eventsApproved(events){
 	eventApprovedList.innerHTML += html;
 }
 
-//WHEN ADMIN CLICKS APPROVE EVENT BUTTON-----------------------------------------
-function approveEvent(){
-	
-}
 
-
-//WHEN ADMIN CLICKS DISAPPROVE EVENT BUTTON-----------------------------------------
-function disapproveEvent(){
-	
-}
 
 
