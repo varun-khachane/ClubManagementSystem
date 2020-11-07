@@ -64,13 +64,19 @@ tr:hover{
 	margin-bottom: 40px;
 }
 table {
-	width: 80%;
+	width: 90%;
 	margin:auto;
-	text-align: justify;
+	text-align: center;
 	font-size: large;
 }
 hr{
 	width: 33%;
 	background: black;
 	margin: 10px auto;
+}
+#event-approved{
+	display: none;
+}
+#event-disapproved{
+	display: none;
 }

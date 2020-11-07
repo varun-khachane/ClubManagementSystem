@@ -15,57 +15,18 @@
 				<h1 class="event-header" class="eb">waiting for approval</h1>
 				<hr>
 
-				<table>
+				<table class="waiting-for-approval">
+					<!-- <div id="event-approved" class="alert alert-success">EVENT APPROVED</div>
+					<div id="event-disapproved" class="alert alert-danger">EVENT DISAPPROVED</div> -->
 					<tr class="event-row">
 						<th>EVENT </th>
-						<th>TIMINGS</th>
+						<th>TIME</th>
+						<th>DURATION(in mins)</th>
 						<th>DATE</th>
 						<th>VENUE</th>
 						<th>CLUB NAME</th>
 						<th></th>
 					</tr>
-
-					<tr class="event-row">
-						<td class="event-name">Classical Dance</td>
-						<td class="event-time">3:30-5:00</td>
-						<td class="event-date">2-12-20</td>
-						<td class="venue">Sudamani Hall</td>
-						<td class="name">Narthana</td>
-						<td class="approval"><button onclick="alert('approved')"><span class="fas fa-check"></span></button><button onclick="alert('disapproved')"><span class="fas fa-times"></span></button></td>
-					</tr>
-					<tr class="event-row">
-						<td class="event-name">Quiz machanege!</td>
-						<td class="event-time">2:30-4:00</td>
-						<td class="event-date">1-12-20</td>
-						<td class="venue">Rama Hall</td>
-						<td class="name">Quiz club</td>
-						<td class="approval"><button onclick="alert('approved')"><span class="fas fa-check"></span></button><button onclick="alert('disapproved')"><span class="fas fa-times"></span></button></td>
-					</tr>
-					<tr class="event-row">
-						<td class="event-name">Quiz machanege!</td>
-						<td class="event-time">2:30-4:00</td>
-						<td class="event-date">1-12-20</td>
-						<td class="venue">Rama Hall</td>
-						<td class="name">Quiz club</td>
-						<td class="approval"><button onclick="alert('approved')"><span class="fas fa-check"></span></button><button onclick="alert('disapproved')"><span class="fas fa-times"></span></button></td>
-					</tr>
-					<tr class="event-row">
-						<td class="event-name">Quiz machanege!</td>
-						<td class="event-time">2:30-4:00</td>
-						<td class="event-date">1-12-20</td>
-						<td class="venue">Rama Hall</td>
-						<td class="name">Quiz club</td>
-						<td class="approval"><button onclick="alert('approved')"><span class="fas fa-check"></span></button><button onclick="alert('disapproved')"><span class="fas fa-times"></span></button></td>
-					</tr>
-					<tr class="event-row">
-						<td class="event-name">Quiz machanege!</td>
-						<td class="event-time">2:30-4:00</td>
-						<td class="event-date">1-12-20</td>
-						<td class="venue">Rama Hall</td>
-						<td class="name">Quiz club</td>
-						<td class="approval"><button onclick="alert('approved')"><span class="fas fa-check"></span></button><button onclick="alert('disapproved')"><span class="fas fa-times"></span></button></td>
-					</tr>
-
 				</table>
 				
 		</div>
@@ -74,56 +35,21 @@
 			<h1 class="event-header" class="eb">Upcoming Events</h1>
 			<hr>
 
-			<table>
+			<table class="approved">
 				<tr class="event-row">
 					<th>EVENT </th>
-					<th>TIMINGS</th>
+					<th>TIME</th>
+					<th>DURATION(in mins)</th>
 					<th>DATE</th>
 					<th>VENUE</th>
 					<th>CLUB NAME</th>
 				</tr>
-
-				<tr class="event-row">
-					<td class="event-name">Classical Dance</td>
-					<td class="event-time">3:30-5:00</td>
-					<td class="event-date">2-12-20</td>
-					<td class="venue">Sudamani Hall</td>
-					<td class="name">Narthana</td>
-				</tr>
-				<tr class="event-row">
-					<td class="event-name">Quiz machanege!</td>
-					<td class="event-time">2:30-4:00</td>
-					<td class="event-date">1-12-20</td>
-					<td class="venue">Rama Hall</td>
-					<td class="name">Quiz club</td>
-				</tr>
-				<tr class="event-row">
-					<td class="event-name">Quiz machanege!</td>
-					<td class="event-time">2:30-4:00</td>
-					<td class="event-date">1-12-20</td>
-					<td class="venue">Rama Hall</td>
-					<td class="name">Quiz club</td>
-				</tr>
-				<tr class="event-row">
-					<td class="event-name">Quiz machanege!</td>
-					<td class="event-time">2:30-4:00</td>
-					<td class="event-date">1-12-20</td>
-					<td class="venue">Rama Hall</td>
-					<td class="name">Quiz club</td>
-				</tr>
-				<tr class="event-row">
-					<td class="event-name">Quiz machanege!</td>
-					<td class="event-time">2:30-4:00</td>
-					<td class="event-date">1-12-20</td>
-					<td class="venue">Rama Hall</td>
-					<td class="name">Quiz club</td>
-				</tr>
-
 			</table>
 
 		</div>
 
 	<%- include('../partials/footer') %>
 	<script type="text/javascript" src="/routes/user_logout.js"></script>
+	<script type="text/javascript" src="/routes/admin_homepage.js"></script>
 	</body>
 </html>
