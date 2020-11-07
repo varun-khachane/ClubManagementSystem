@@ -1,18 +1,16 @@
 //EVENTS THAT ARE WAITING FOR APPROVAL------------------------------------------------
 
 //getting data from firestore
-db.collection("clubs").get().then((snapshot) =>{
+db.collection("clubs").onSnapshot((snapshot) =>{
 	let i = 0;
 	eventList = new Array();
 	snapshot.forEach((doc) => {
-		db.collection("clubs").doc(doc.id).collection("events").where('status','==','NA').get().then((snapshot1) =>{
+		db.collection("clubs").doc(doc.id).collection("events").where('status','==','NA').onSnapshot((snapshot1) =>{
 			eventsWaitingForApproval(snapshot1.docs,doc.id);
 		});
 	});
 	
-}).catch((err) => {
-	console.log(err);
-});
+})
 
 //rendering the data to frontend
 const eventWaitingList = document.querySelector(".waiting-for-approval");
@@ -56,7 +54,7 @@ function approveEvent(clubDocID,eventDocID){
 		status: "A"
 	});
 	document.getElementById("event-approved").style.display = "block";
-	$('#event-approved').delay(3000).fadeOut('slow');
+	$('#event-approved').delay(2000).fadeOut('slow');
 }
 
 
@@ -68,7 +66,7 @@ function disapproveEvent(clubDocID,eventDocID){
 	    console.error(error);
 	});
 	document.getElementById("event-disapproved").style.display = "block";
-	$('#event-disapproved').delay(3000).fadeOut('slow');
+	$('#event-disapproved').delay(2000).fadeOut('slow');
 }
 
 
@@ -76,18 +74,16 @@ function disapproveEvent(clubDocID,eventDocID){
 //UPCOMING EVENTS THAT ARE ALREADY APPROVED-----------------------------------------
 
 //getting data from firestore
-db.collection("clubs").get().then((snapshot) =>{
+db.collection("clubs").onSnapshot((snapshot) =>{
 	let i = 0;
 	eventList = new Array();
 	snapshot.forEach((doc) => {
-		db.collection("clubs").doc(doc.id).collection("events").where('status','==','A').get().then((snapshot1) =>{
+		db.collection("clubs").doc(doc.id).collection("events").where('status','==','A').onSnapshot((snapshot1) =>{
 			eventsApproved(snapshot1.docs);
 		});
 	});
 	
-}).catch((err) => {
-	console.log(err);
-});
+})
 
 //rendering the data to frontend
 const eventApprovedList = document.querySelector(".approved");
