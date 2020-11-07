@@ -8,7 +8,7 @@
 </head>
 <body>
 	<header  id="main-header">
-		<img class="img-fluid" src="/images/dance.png" alt="Narthana logo">
+		<img class="img-fluid editableTag" src="/images/dance.png" contenteditable="false" alt="Narthana logo">
 		<h1 class="club-name editableTag applyInline" contenteditable="false">Narthana</h1>
 			<p class="editableTag" contenteditable="false"> This is the dance club! Let's dance :) </p>
 			<br>
@@ -18,7 +18,7 @@
 					<path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
 				</svg>
 			</button>
-			<h1 class="username">Welcome<span> user</span>!</h1>
+			<h1 class="username">Welcome</h1>
 		
 		<a class="logout-btn" href="/login">LOGOUT<!-- <h3 class="club-header">Log out</h3> --></a>		
 	</header>
@@ -79,6 +79,7 @@
 	
 </body>
 
+<%- include('../partials/footer.ejs') %>
 <script>
 	function editProfile() {
 		let selectTags = document.getElementsByClassName("editableTag");

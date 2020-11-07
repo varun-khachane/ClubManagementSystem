@@ -1,0 +1,39 @@
+if(auth.currentUser != null){
+    db.collection("clubs").get().then((snapshot) =>{
+        let i = 0;
+        eventList = new Array();
+
+        snapshot.forEach((doc) => {
+            db.collection("clubs").doc(doc.id).collection("events").get().then((snapshot1) =>{
+                snapshot1.forEach(doc1 => {
+                    eventList[i] = doc1.data();
+                    eventList[i].clubname = doc.data().name;
+                    i++;	
+                });
+            });
+        });
+        console.log(eventList)
+        res.render("admin/admin_homepage",{eventList: eventList});	
+    }).catch((err) => {
+        console.log(err);
+    });
+}
+
+const start = async () => {
+    await asyncForEach([1, 2, 3], async (num) => {
+      await waitFor(50);
+      console.log(num);
+    });
+    console.log('Done');
+  }
+  start();
+
+
+  async function asyncForEach(array, callback) {
+    for (let index = 0; index < array.length; index++) {
+      await callback(array[index], index, array);
+    }
+  }
+
+  //------------------------------------------------------
+  
