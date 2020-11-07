@@ -1,11 +1,11 @@
 //EVENTS THAT ARE WAITING FOR APPROVAL------------------------------------------------
 
 //getting data from firestore
-db.collection("clubs").onSnapshot((snapshot) =>{
+db.collection("clubs").get().then((snapshot) =>{
 	let i = 0;
 	eventList = new Array();
 	snapshot.forEach((doc) => {
-		db.collection("clubs").doc(doc.id).collection("events").where('status','==','NA').onSnapshot((snapshot1) =>{
+		db.collection("clubs").doc(doc.id).collection("events").where('status','==','NA').get().then((snapshot1) =>{
 			eventsWaitingForApproval(snapshot1.docs,doc.id);
 		});
 	});
@@ -52,9 +52,12 @@ function eventsWaitingForApproval(events,club){
 function approveEvent(clubDocID,eventDocID){
 	db.collection("clubs").doc(clubDocID).collection("events").doc(eventDocID).update({
 		status: "A"
+	}).then(function() {
+		window.location.reload();
 	});
-	document.getElementById("event-approved").style.display = "block";
-	$('#event-approved').delay(2000).fadeOut('slow');
+	// document.getElementById("event-approved").style.display = "block";
+	// $('#event-approved').delay(2000).fadeOut('slow');
+
 }
 
 
@@ -62,23 +65,25 @@ function approveEvent(clubDocID,eventDocID){
 function disapproveEvent(clubDocID,eventDocID){
 	db.collection("clubs").doc(clubDocID).collection("events").doc(eventDocID).delete().then(function() {
 	    console.log("Document successfully deleted!");
+	}).then(function() {
+		window.location.reload();
 	}).catch(function(error) {
 	    console.error(error);
 	});
-	document.getElementById("event-disapproved").style.display = "block";
-	$('#event-disapproved').delay(2000).fadeOut('slow');
+	// document.getElementById("event-disapproved").style.display = "block";
+	// $('#event-disapproved').delay(2000).fadeOut('slow');
+	
 }
-
 
 
 //UPCOMING EVENTS THAT ARE ALREADY APPROVED-----------------------------------------
 
 //getting data from firestore
-db.collection("clubs").onSnapshot((snapshot) =>{
+db.collection("clubs").get().then((snapshot) =>{
 	let i = 0;
 	eventList = new Array();
 	snapshot.forEach((doc) => {
-		db.collection("clubs").doc(doc.id).collection("events").where('status','==','A').onSnapshot((snapshot1) =>{
+		db.collection("clubs").doc(doc.id).collection("events").where('status','==','A').get().then((snapshot1) =>{
 			eventsApproved(snapshot1.docs);
 		});
 	});
