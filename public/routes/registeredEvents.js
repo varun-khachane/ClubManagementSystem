@@ -60,7 +60,7 @@ auth.onAuthStateChanged(function(user) {
             </div>
             <div class="row">
                 <div class="col-sm-4">
-                    <img class="img-fluid" src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="">
+                    <img class="img-fluid" src=${event.url} alt="">
                 </div>
                 <div class="col-sm-8">
                     <div class="card-body">

@@ -2,12 +2,33 @@
 var uid, clubName, clubDesc;
 const clubNameClass = document.querySelector('.club-name');
 const clubDescClass = document.querySelector('.club-desc');
+const venueObj = {}
+
+// db.collection('clubs').get().then(snapshots => {
+//     snapshots.docs.forEach(doc =>{
+//         id = doc.id
+//         db.collection('clubs').doc(id).collection('events').where('status','==','A').get().then(snap1 => {
+//             snap1.docs.forEach(doc1 => {
+//                 var timestamp = doc1.data().time
+                
+//                 console.log(timestamp.toDate().toDateString())
+
+//             })
+//         })
+//     })
+// })
+
+// function showData(){
+//     var value = document.querySelector('#eventDate').value
+//     console.log(value)
+// }
 
 auth.onAuthStateChanged(function(user){
     if(user) {
         let userEmail = user.email;
         let atIndex = userEmail.indexOf("@");
         clubName = userEmail.substr(0, atIndex);
+
 
         db.collection("clubs").where('name','==', clubName).get().then((snapshot)=>{
             uid = snapshot.docs[0].id; 
@@ -41,6 +62,7 @@ eventForm.addEventListener('submit',(e)=>{
     let eventTime = eventForm['eventTime'].value;
     let eventDuration = eventForm['eventDuration'].value;
     let eventPlace = eventForm['eventPlace'].value;
+    let eventURL = eventForm['posterURL'].value;
     let eventStatus = 'NA';
     let eventTimeStamp = newTimeStamp(eventDate + " " + eventTime);
     console.log(eventTimeStamp);
@@ -52,7 +74,8 @@ eventForm.addEventListener('submit',(e)=>{
         hall : eventPlace,
         name: eventName,
         status: eventStatus,
-        time: eventTimeStamp
+        time: eventTimeStamp,
+        url: eventURL
     })
     .then(function(docRef) {
         eventForm.reset();

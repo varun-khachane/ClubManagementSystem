@@ -28,7 +28,7 @@
 
                 <div class="form-group half-width">
                     <label for="eventDate">Date</label>
-                    <input type="date" class="form-control" id="eventDate" >
+                    <input type="date" class="form-control" id="eventDate" onchange="alert(this.value)">
                 </div>
 
                 <div class="form-group">
@@ -45,18 +45,25 @@
                     </div>
                 </div>
 
-                <div class="form-group half-width">
-                    <label for="eventPlace">Venue</label>
-                    <select class="form-control" id="eventPlace" name="eventPlace">
-                        <option value="Sudamani">Sudamani</option>
-                        <option value="Rama">Rama </option>
-                        <option value="Vyasa">Vyasa</option>
-                        <option value="Amriteshwari" disabled>Amriteshwari</option> 
-                        <option value="Valmiki" disabled>Valmiki</option>  
-                        <option value="B&C block" >B&C block</option>
-                        <option value="New block" >New block</option>
-                        <option value="fountain Road" >fountain Road</option>     
-                    </select>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col"><label for="eventPlace">Venue</label>
+                            <select class="form-control" id="eventPlace" name="eventPlace">
+                                <option value="Sudamani">Sudamani</option>
+                                <option value="Rama">Rama </option>
+                                <option value="Vyasa">Vyasa</option>
+                                <option value="Amriteshwari" disabled>Amriteshwari</option> 
+                                <option value="Valmiki" disabled>Valmiki</option>  
+                                <option value="B&C block" >B&C block</option>
+                                <option value="New block" >New block</option>
+                                <option value="fountain Road" >fountain Road</option>     
+                            </select></div>
+                        <div class="col">
+                            <label for="posterURL">Poster URL</label>
+                            <input type="text" class="form-control" id="posterURL" placeholder="Enter the URL here.">
+                        </div>
+                    </div>
+                    
                 </div>
 
                 <button type="submit" class="btn btn-dark">Request</button>
