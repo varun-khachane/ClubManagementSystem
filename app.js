@@ -45,8 +45,12 @@ app.get("/student/all_clubs",function(req,res){
 	res.render("students/students_club");
 });
 
-app.get("/student/all_clubs/club",function(req,res){
-	res.render("students/club_page");
+app.get("/student/raaga",function(req,res){
+	res.render("students/raaga");
+});
+
+app.get("/student/narthana",function(req,res){
+	res.render("students/narthana");
 });
 app.get("/student/personal",function(req,res){
 	res.render("students/student_personal");
