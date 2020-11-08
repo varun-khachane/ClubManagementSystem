@@ -56,7 +56,7 @@ auth.onAuthStateChanged(function(user){
         let userEmail = user.email;
         let atIndex = userEmail.indexOf("@");
         const userName = userEmail.substr(0, atIndex);
-        console.log(userName);  //debug
+        console.log("current loggedin username:",userName);  //debug
         clubName.innerHTML = userName;
         const club = clubDetails(userName);
     }
