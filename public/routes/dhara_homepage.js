@@ -59,6 +59,7 @@ auth.onAuthStateChanged(function(user){
         console.log("current loggedin username:",userName);  //debug
         clubName.innerHTML = userName;
         const club = clubDetails(userName);
+        setClubLogo(userName);
     }
 });
 
@@ -73,4 +74,19 @@ function updateDesc(newDesc) {
             console.error("Error updating document: ", error);
         });   
     
+}
+
+//clubLogo
+function setClubLogo(userName) {
+    var clubLogo = document.querySelector('.club-logo');
+   var imgSrc = "/images/" + userName + '.jpg';
+   clubLogo.src = imgSrc;
+    clubLogo.onload = function(e){
+        clubLogo.src = imgSrc;
+    };
+
+    clubLogo.onerror = function(e){
+        clubLogo.src = "/images/default.jpg";
+    };
+
 }
