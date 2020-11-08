@@ -51,6 +51,9 @@ app.get("/student/all_clubs/club",function(req,res){
 app.get("/student/personal",function(req,res){
 	res.render("students/student_personal");
 });
+app.get("/student/registeredEvents",function(req,res){
+	res.render("students/registeredEvents");
+});
 
 
 

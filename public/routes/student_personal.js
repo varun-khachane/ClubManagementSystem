@@ -82,7 +82,7 @@ function eventsList(events,clubName,club){
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-outline-success align-bottom" data-toggle="modal"
                             data-target="#${modalId}">
-                            Register
+                            More Info..
                         </button>
                         
 
@@ -198,7 +198,7 @@ function regEvent(clubevent){
                         })
                         .then(() => {
                             console.log("registered for event")
-                            window.alert("Registered for event")
+                            window.alert("Registered for event successfully.")
                             
                     
                         })
