@@ -2,14 +2,28 @@
 
 //NAME OF THE STUDENT AND REGNO
 
+const followedClubs = new Array()
 
 auth.onAuthStateChanged(function(user) {
     
     db.collection('students').where('uid','==',user.uid).get().then(snapshots => {
-        console.log();
+    const id =  snapshots.docs[0].id
       document.getElementById('navuser').innerHTML = snapshots.docs[0].data().name;
       document.getElementById('navuser-reg').innerHTML = snapshots.docs[0].data().regno;
-    })
+
+      db.collection('students').doc(id).collection('followed-clubs').get().then(snap => {
+        let i = 0 
+        snap.forEach((doc1) => {
+              followedClubs[i] = doc1.data().name
+              i++
+          })
+          renderList()
+      })
+      
+      })
+
+    
+    
   }); 
 
 ///////////////////////
@@ -17,54 +31,52 @@ auth.onAuthStateChanged(function(user) {
 // Events List
 
 //getting data from firestore
-db.collection("clubs").get().then((snapshot) =>{
+function renderList(){
+    db.collection("clubs").get().then((snapshot) =>{
 	
-	snapshot.forEach((doc) => {
-		db.collection("clubs").doc(doc.id).collection("events").where('status','==','A').get().then((snapshot1) =>{
-			eventsList(snapshot1.docs,doc.id);
-		});
-	});
-	
-})
+        snapshot.forEach((doc) => {
+            console.log()
+            db.collection("clubs").doc(doc.id).collection("events").where('status','==','A').get().then((snapshot1) =>{
+                eventsList(snapshot1.docs,doc.data().name,doc.id);
+            });
+        });
+        
+    })
+}
+
+
+
 
 //rendering the data to frontend
 const eventulList = document.querySelector(".unordered_list_event");
-function eventsList(events,club){
-	let html = '';
+function eventsList(events,clubName,club){
+    let html = '';
+    
 	events.forEach(doc => {
-		const event = doc.data();		
-		ID ={
+        const event = doc.data();		
+        
+        ID ={
 			club : club,
 			event: doc.id
-		};
+        };
+        var regbuttonId = ID.club+","+ID.event
+        
+		
 		var date = event.time.toDate().toDateString();
 		var time = event.time.toDate().toLocaleTimeString();
-		// const tr = `
-		// 	<tr class="event-row">
-		// 		<td class="event-name">${event.name}</td>
-		// 		<td class="event-time">${time}</td>
-		// 		<td class="event-duration">${event.duration}</td>
-		// 		<td class="event-date">${date}</td>
-		// 		<td class="venue">${event.hall}</td>
-		// 		<td class="name">${event.clubname}</td>
-		// 		<td class="approval">
-		// 			<button class="${ID.club}" id="${ID.event}" onclick="approveEvent(this.className,this.id)">
-		// 				<span class="fas fa-check"></span>
-		// 			</button>
-		// 			<button class="${ID.club}" id="${ID.event}" onclick="disapproveEvent(this.className,this.id)">
-		// 				<span class="fas fa-times"></span>
-		// 			</button>
-		// 		</td>
-		// 	</tr>
-		// `;
-        // html += tr;
+        var clubclassf = event.clubname+"f"
+        var clubclassnf = event.clubname+"nf"
+        var modalId = event.name+"modal"
         
         const li = `
         <li class="event-list">
         <div class="card">
             <div class="card-header">
                  ${event.clubname}
-                 <div class="float-right"><button class="btn btn-outline-danger"><i class="fas fa-heart"></i>  Follow</button></div>
+                 <div class="float-right">
+                 <button class="btn btn-outline-danger ${clubclassnf}" id="${event.clubname}" onclick="clubFollow(this.id)" style="display: block;"><i class="fas fa-heart"></i>  Follow</button>
+                 <button class="btn btn-danger ${clubclassf}" style="display: none;"><i class="fas fa-heart"></i>  Following</button>
+                 </div>
                  
             </div>
             <div class="row">
@@ -78,13 +90,13 @@ function eventsList(events,club){
                         </p>
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-outline-success align-bottom" data-toggle="modal"
-                            data-target="#exampleModal">
+                            data-target="#${modalId}">
                             Register
                         </button>
                         
 
                         <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1"
+                        <div class="modal fade" id="${modalId}" tabindex="-1"
                             aria-labelledby="exampleModalLabel">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -106,7 +118,7 @@ function eventsList(events,club){
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-success"
                                             data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Register</button>
+                                        <button type="button" id="${regbuttonId}" class="btn btn-primary" onclick="regEvent(this.id)">Register</button>
                                     </div>
                                 </div>
                             </div>
@@ -121,6 +133,89 @@ function eventsList(events,club){
     </li>
     `;
     html += li;
+    
 	});
-	eventulList.innerHTML += html;
+    eventulList.innerHTML += html;
+    
+
+    if(followedClubs.includes(clubName)){
+        
+        var x, i,y,j;
+        var clubf = "."+clubName+"f"
+        var clubnf = "."+clubName+"nf"
+        x = document.querySelectorAll(clubnf);
+        
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        y = document.querySelectorAll(clubf);
+        for (j = 0; j < y.length; j++) {
+            y[j].style.display = "block";
+        }
+    }
+}
+
+function clubFollow(clubName){
+    auth.onAuthStateChanged(function(user) {
+        
+        db.collection('students').where('uid','==',user.uid).get().then(snapshots => {
+            const id = snapshots.docs[0].id
+            
+            db.collection("students").doc(id).collection('followed-clubs').where('name','==',clubName).get().then(doc1 => {
+                console.log(doc1)
+                if(doc1.exists){
+                    
+                    console.log('already followed')
+                }
+                else{
+                    db.collection("students").doc(id).collection('followed-clubs').doc(clubName).set({
+                        name: clubName
+                    })
+                    .then(() => {
+                        console.log("follwed the club")
+                        window.location.reload()
+                
+                    })
+                    
+                }
+            })
+          
+        })
+      }); 
+
+}
+
+function regEvent(clubevent){
+    var id = clubevent.split(",")
+    var clubsid = id[0]
+    var eventsid = id[1]
+    
+    db.collection('clubs').doc(clubsid).collection('events').doc(eventsid).get().then(docf => {
+        
+        auth.onAuthStateChanged(function(user) {
+            
+            db.collection('students').where('uid','==',user.uid).get().then(snapshots => {
+                const id = snapshots.docs[0].id
+                
+                        db.collection("students").doc(id).collection('registeredEvents').doc(docf.data().name).set({
+                            clubname: docf.data().clubname,
+                            desc: docf.data().desc,
+                            duration : docf.data().duration,
+                            hall : docf.data().hall,
+                            name : docf.data().name,
+                            time : docf.data().time
+                        })
+                        .then(() => {
+                            console.log("registered for event")
+                            window.alert("Registered for event")
+                            
+                    
+                        })
+          
+            })
+
+        })
+        
+    })
+
 }
