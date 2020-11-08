@@ -39,10 +39,10 @@ function eventsApproved(events){
 
 // header of the CLUBS:
 //fetch the club details & update clubDesc.
-let uid;
+var uid;
 const clubDetails = (clubName)=> {
     db.collection("clubs").where('name','==', clubName).get().then((snapshot)=>{
-        uid = snapshot.docs[0].data().uid;     
+        uid = snapshot.docs[0].id; 
         const desc = snapshot.docs[0].data().desc;
         clubDesc.innerHTML = desc;
     })
@@ -64,25 +64,13 @@ auth.onAuthStateChanged(function(user){
 
 //Update Club-details
 function updateDesc(newDesc) {
-    console.log(clubName.innerHTML);
-
-    // db.collection("clubs").where('name','==', clubName.innerHTML).get().then((snapshot)=>{
-    //     console.log(snapshot.docs[0].data());
-    //     const localClubName = snapshot.docs[0].data().name;
-        console.log("curr uid:",uid);
-        // db.collection("clubs").doc(uid).get().then();
         db.collection("clubs").doc(uid).update({
             desc : newDesc
         }).then(()=>{
-            console.log("club-desc successfully updated!");
+            console.log("Successfully updated!");
         })
         .catch(function(error) {
-            // The document probably doesn't exist.
             console.error("Error updating document: ", error);
-        });
-    // });
-
-
-    
+        });   
     
 }
