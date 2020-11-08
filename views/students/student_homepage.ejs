@@ -41,14 +41,14 @@
             <div class="xyz" style="margin: 5px;">
                 <div class="btn-group">
                     <button class="btn btn-secondary btn-sm" type="button">
-                      Varun M Khachane
+                      <span id="navuser">user</span> 
                     </button>
                     <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <span class="sr-only">Toggle Dropdown</span>
                     </button>
                     <div class="dropdown-menu p-1">
                         <p>
-                           BL.EN.U4CSE17140
+                           <span id="navuser-reg">reg no</span>
                         </p>
                         <form class="px-1 py-1">
                             <div class="form-group">
@@ -66,7 +66,7 @@
                   </div>
             </div>
             <ul class="logout-button">
-                <a class="btn btn-danger  my-2 my-sm-0" href="/login">Log Out</a>
+                <a class="btn btn-danger  my-2 my-sm-0 logout-btn" href="/login">Log Out</a>
             </ul>
             
         </div>
@@ -221,6 +221,7 @@
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
     <script type="text/javascript" src="/routes/user_logout.js"></script>
+    <script type="text/javascript" src="/routes/student_homepage.js"></script>
 </body>
 
 </html>
