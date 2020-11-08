@@ -9,14 +9,7 @@
     <title>Events list</title>
   </head>
   <body>
-    <header  id="main-header">
-		<img class="img-fluid" src="/images/dance.png" alt="Narthana logo">
-		<h1 class="club-name">Narthana<br><p>This is the dance club! Let's dance :)</p></h1>
-		<h1 class="username">Welcome<span> user</span>!</h1>
-
-		<a class="logout-btn" href="/login">LOGOUT<!-- <h3 class="club-header">Log out</h3> --></a>		
-	</header>
-
+    <%- include("../partials/dhara_header.ejs") %>
     <div class="container">
     <h1 class="eb currEvents">Approved
     </h1>
@@ -28,51 +21,42 @@
     </a>
 
     <hr>
-    <table>
+    <table id="events-approved">
         <tr class="event-row">
             <th>EVENT </th>
             <th>TIMINGS</th>
+            <th>DURATION(in mins)</th>
             <th>DATE</th>
             <th>VENUE</th>
             <th>CLUB NAME</th>
-            <th>Cancel request</th>
-        </tr>
-
-        <tr class="event-row">
-            <td class="event-name">Classical Dance</td>
-            <td class="event-time">3:30-5:00</td>
-            <td class="event-date">12-12-50</td>
-            <td class="venue">Sudamani Hall</td>
-            <td class="name">Narthana</td>
-            <td class="cancelBtn"><a href="#" class="btn btn-outline-danger btn-sm" tabindex="-1" role="button" aria-disabled="true">Cancel</a></td>
+            <th>CANCEL EVENT</th>
         </tr>
     </table>
     <br><br>
+
+
     <h1 class="eb currEvents">WAITING FOR APPROVAL</h1>
     <hr>
-    <table>
+
+    <table id="events-waiting">
         <tr class="event-row">
             <th>EVENT </th>
             <th>TIMINGS</th>
+            <th>DURATION(in mins)</th>
             <th>DATE</th>
             <th>VENUE</th>
             <th>CLUB NAME</th>
         </tr>
-
-        <tr class="event-row">
-            <td class="event-name">HIp Hop!!!</td>
-            <td class="event-time">3:30-5:00</td>
-            <td class="event-date">12-12-50</td>
-            <td class="venue">Back stage</td>
-             <td class="name">Narthana</td>
-        </tr>
     </table>
 </div>
-
+    
+    <%- include('../partials/footer') -%>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/routes/dhara_header.js"></script>
+    <script type="text/javascript" src="/routes/currEvents.js"></script>
   </body>
 </html>

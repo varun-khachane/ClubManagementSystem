@@ -9,20 +9,13 @@
     
   </head>
   <body>
-    <header  id="main-header">
-		<img class="img-fluid" src="/images/dance.png" alt="Narthana logo">
-		<h1 class="club-name">Narthana<br><p>This is the dance club! Let's dance :)</p></h1>
-		<h1 class="username">Welcome<span> user</span>!</h1>
-
-		<a class="logout-btn" href="/login">LOGOUT<!-- <h3 class="club-header">Log out</h3> --></a>		
-    </header>
-
+    <%- include("../partials/dhara_header.ejs") %>
     <!-- <div class="events"> -->
         <div class="container">
 
             <h1  class="eb eventForm"><a href="/dhara"><span class="fas fa-arrow-left"></span></a>REGISTER A NEW EVENT!</h1>
     
-            <form class="eventForm" action=""> 
+            <form class="eventForm" id="eventDetails"> 
                 <div class="form-group">
                     <label for="eventNameInput">Event Name</label>
                     <input type="text" class="form-control" id="eventNameInput" placeholder="name of the event">
@@ -55,11 +48,14 @@
                 <div class="form-group half-width">
                     <label for="eventPlace">Venue</label>
                     <select class="form-control" id="eventPlace" name="eventPlace">
-                        <option value="">Sudamani</option>
-                        <option value="">Rama </option>
-                        <option value="">Vyasa</option>
-                        <option value="" disabled>Amriteshwari</option> 
-                        <option value="" disabled>Valmiki</option>   
+                        <option value="Sudamani">Sudamani</option>
+                        <option value="Rama">Rama </option>
+                        <option value="Vyasa">Vyasa</option>
+                        <option value="Amriteshwari" disabled>Amriteshwari</option> 
+                        <option value="Valmiki" disabled>Valmiki</option>  
+                        <option value="B&C block" >B&C block</option>
+                        <option value="New block" >New block</option>
+                        <option value="fountain Road" >fountain Road</option>     
                     </select>
                 </div>
 
@@ -69,10 +65,13 @@
             </form>
         </div>
 <!-- </div> -->
+    <%- include('../partials/footer') -%>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/routes/dhara_header.js"></script>
+    <script type="text/javascript" src="/routes/eventForm.js"></script>
   </body>
 </html>
