@@ -1,7 +1,3 @@
-////////////////////////
-
-//NAME OF THE STUDENT AND REGNO
-
 const followedClubs = new Array()
 
 auth.onAuthStateChanged(function(user) {
@@ -22,31 +18,27 @@ auth.onAuthStateChanged(function(user) {
       
       })
     
-    
   }); 
 
-///////////////////////
+  function renderList(){
+  
+    for(var i =0;i<followedClubs.length;i++){
+         followedClub = followedClubs[i]
 
-// Events List
-
-//getting data from firestore
-function renderList(){
-    db.collection("clubs").get().then((snapshot) =>{
+         db.collection("clubs").where("name","==",followedClub).get().then((snapshot) =>{
 	
-        snapshot.forEach((doc) => {
-            console.log()
-            db.collection("clubs").doc(doc.id).collection("events").where('status','==','A').get().then((snapshot1) =>{
-                eventsList(snapshot1.docs,doc.data().name,doc.id);
+            snapshot.forEach((doc) => {
+                console.log()
+                db.collection("clubs").doc(doc.id).collection("events").where('status','==','A').get().then((snapshot1) =>{
+                    eventsList(snapshot1.docs,doc.data().name,doc.id);
+                });
             });
-        });
-        
-    })
+            
+        })
+    }
+
 }
 
-
-///////////
-
-//rendering the data to frontend
 const eventulList = document.querySelector(".unordered_list_event");
 function eventsList(events,clubName,club){
     let html = '';
@@ -218,3 +210,4 @@ function regEvent(clubevent){
     })
 
 }
+

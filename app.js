@@ -48,6 +48,9 @@ app.get("/student/all_clubs",function(req,res){
 app.get("/student/all_clubs/club",function(req,res){
 	res.render("students/club_page");
 });
+app.get("/student/personal",function(req,res){
+	res.render("students/student_personal");
+});
 
 
 
