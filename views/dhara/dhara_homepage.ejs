@@ -9,8 +9,8 @@
 <body>
 	<header  id="main-header">
 		<img class="img-fluid" src="/images/dance.png" alt="Narthana logo">
-		<h1 class="club-name editableTag applyInline" contenteditable="false">Narthana</h1>
-			<p class="editableTag" contenteditable="false"> This is the dance club! Let's dance :) </p>
+		<h1 class="club-name applyInline"></h1>
+			<p class="club-desc editableTag" contenteditable="false"></p>	
 			<br>
 			<button class="editBtn applyInline" onclick="editProfile()"> 
 				<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -29,16 +29,18 @@
 		<hr>
 		
 
-		<table>
+		<table class="approved">
 			<tr class="event-row">
 				<th>EVENT </th>
 				<th>TIMINGS</th>
+				<th>DURATION(in mins)</th>
 				<th>DATE</th>
 				<th>VENUE</th>
 				<th>CLUB NAME</th>
 			</tr>
 
-			<tr class="event-row">
+			<%#
+			 <tr class="event-row">
 				<td class="event-name">Classical Dance</td>
 				<td class="event-time">3:30-5:00</td>
 				<td class="event-date">12-12-50</td>
@@ -72,24 +74,29 @@
 				<td class="event-date">1-12-20</td>
 				<td class="venue">Rama Hall</td>
 				<td class="name">Quiz club</td>
-			</tr>
+			</tr> #%>
 		</table>
 	</div>
 
 	
 </body>
 
-<%- include('../partials/footer') %>
+<%- include('../partials/footer') -%>
 <script type="text/javascript" src="/routes/user_logout.js"></script>
+<script src="/routes/dhara_homepage.js"></script>
 <script>
 	function editProfile() {
 		let selectTags = document.getElementsByClassName("editableTag");
-		for(var i=0;i<selectTags.length;i++) {
-			if(selectTags[i].isContentEditable == true)
-				selectTags[i].contentEditable = false;
+		const clubDesc = document.querySelector(".club-desc");
+		// for(var i=0;i<selectTags.length;i++) {
+			if(selectTags[0].isContentEditable == true) {
+				selectTags[0].contentEditable = false;
+				updateDesc(clubDesc.innerHTML);
+
+			}
 			else
-				selectTags[i].contentEditable = true;			
-		}
+				selectTags[0].contentEditable = true;			
+		// }
 	}
 </script>
 </html>
