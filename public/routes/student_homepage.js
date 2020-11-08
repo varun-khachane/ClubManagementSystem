@@ -80,7 +80,11 @@ function eventsList(events,clubName,club){
             </div>
             <div class="row">
                 <div class="col-sm-4">
+
                     <img class="img-fluid" src=${event.url} alt="">
+
+                   
+
                 </div>
                 <div class="col-sm-8">
                     <div class="card-body">
