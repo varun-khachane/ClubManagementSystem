@@ -195,7 +195,7 @@ function regEvent(clubevent){
                             hall : docf.data().hall,
                             name : docf.data().name,
                             time : docf.data().time,
-                            url: docf.url
+                            url: docf.data().url
                         })
                         .then(() => {
                             console.log("registered for event")
