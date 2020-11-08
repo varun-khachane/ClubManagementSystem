@@ -52,11 +52,11 @@ function setClubLogo(userName) {
    var imgSrc = "/images/" + userName + '.jpg';
    clubLogo.src = imgSrc;
     clubLogo.onload = function(e){
-        clubLogo.src = imgSrc;
+        clubLogo.src = imgSrc;  //when img is found in server.
     };
 
     clubLogo.onerror = function(e){
-        clubLogo.src = "/images/default.jpg";
+        clubLogo.src = "/images/default.jpg";   //when image not found set default image.
     };
 
 }
