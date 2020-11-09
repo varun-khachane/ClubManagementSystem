@@ -10,7 +10,7 @@ db.collection('clubs').where('name','==','chaitanya').get().then((snapshot) => {
     var chaitanya = snapshot.docs[0].data()
     document.getElementById("chaitanya_desc").innerHTML = chaitanya.desc
 })
-db.collection('clubs').where('name','==','FACE').get().then((snapshot) => {
+db.collection('clubs').where('name','==','face').get().then((snapshot) => {
     var FACE = snapshot.docs[0].data()
     document.getElementById("FACE_desc").innerHTML = FACE.desc
 })

@@ -28,7 +28,7 @@
 
                 <div class="form-group half-width">
                     <label for="eventDate">Date</label>
-                    <input type="date" class="form-control" id="eventDate" onchange="alert(this.value)">
+                    <input type="date" class="form-control" id="eventDate">
                 </div>
 
                 <div class="form-group">
@@ -56,11 +56,16 @@
                                 <option value="Valmiki" disabled>Valmiki</option>  
                                 <option value="B&C block" >B&C block</option>
                                 <option value="New block" >New block</option>
-                                <option value="fountain Road" >fountain Road</option>     
+                                <option value="fountain Road" >fountain Road</option>
+                                <option value="football field 1">football field 1</option>    
+                                <option value="football field 2">football field 2</option>     
+                                <option value="basketball court">basketball court</option>
+                                <option value="volleyball field 1">volleyball court</option>     
+                                <option value="cricket ground">cricket ground</option>     
                             </select></div>
                         <div class="col">
                             <label for="posterURL">Poster URL</label>
-                            <input type="text" class="form-control" id="posterURL" placeholder="Enter the URL here.">
+                            <input type="text" class="form-control" id="posterURL" placeholder="Enter the URL here." required>
                         </div>
                     </div>
                     
@@ -80,5 +85,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <script type="text/javascript" src="/routes/dhara_header.js"></script>
     <script type="text/javascript" src="/routes/eventForm.js"></script>
+    <script type="text/javascript" src="/routes/user_logout.js"></script>
   </body>
 </html>
